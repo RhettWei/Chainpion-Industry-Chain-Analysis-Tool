@@ -1,0 +1,146 @@
+name: Publish Chainpion v1.7.3
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/release.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chainpion-release-v1.7.3
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: v1.7.3
+      RELEASE_COMMIT: fa5051ea0bf27304b3063d9c59b02cf67396316e
+    steps:
+      - name: Download the fixed source commit
+        run: gh api "repos/${GH_REPO}/zipball/${RELEASE_COMMIT}" > source.zip
+
+      - name: Build and verify the delivery archive
+        env:
+          RELEASE_NOTES: |
+            # Chainpion v1.7.3｜产业链研究演示与独立量化模块
+
+            链英 Chainpion 面向一级市场研究员、投资经理与产业研究团队，围绕原材料价格、供需变化、政策调整和重大事件，连接产业结构阅读、事件传导分析、经营情景测算与研究依据交付。
+
+            ## 本版交付
+
+            | 组件 | 版本 | 内容 |
+            | --- | --- | --- |
+            | 产业研究网页 | v1.7.3 | 可运行的前端构建文件、三维产业全景、节点档案、传导与量化展示、演示案例 |
+            | 独立量化模块 | v0.4.2 | 完整前后端源码、四类模型、资料候选审核、可视化与报告导出 |
+            | 使用与集成文档 | 随本版发布 | 启动说明、工作流、模型公式、接口对接、配置模板和文件校验清单 |
+            | 可复算案例 | 2份 | 算力需求增长与碳酸锂价格下降的输入及预期结果 |
+
+            ## 主要功能
+
+            - **三维产业全景：**阅读上下游结构、产业环节、代表企业与相关来源。
+            - **事件传导分析：**展示作用对象、影响路径、成立条件与跨链约束。
+            - **四类量化方法：**成本传导、量价—利润、本量利／盈亏平衡、市场事件研究。
+            - **交互式情景测算：**按产品与对象设置参数，比较情景、贡献和盈亏边界。
+            - **研究依据交付：**保留基线、参数、资料来源、确认记录与公式，导出 Word、Markdown 和 HTML 报告。
+
+            ## 下载与启动
+
+            下载附件 **`Chainpion-v1.7.3-delivery.zip`** 并解压，进入 `Chainpion-v1.7.3` 目录。
+
+            ### 启动产业研究网页
+
+            安装 Python 3，在解压后的目录运行：
+
+            ```bash
+            python -m http.server 5188 --bind 127.0.0.1 --directory frontend
+            ```
+
+            打开 <http://127.0.0.1:5188/>。
+
+            ### 启动独立量化模块
+
+            安装 Node.js 20 或以上，在解压后的目录运行：
+
+            ```bash
+            npm start
+            ```
+
+            打开 <http://127.0.0.1:4318/>。Windows 也可双击 `quant-module/启动量化模块.cmd`。
+
+            核心量化功能使用 Node.js 标准库，无需安装 npm 依赖。基础经营测算与内置案例无需模型 Key；行情和网页搜索分别通过 `TUSHARE_TOKEN`、`BRAVE_SEARCH_API_KEY` 配置，模板见 `quant-module/.env.example`。
+
+            ## 文件组成与集成
+
+            网页演示与独立量化模块分别启动。`frontend/`保存 v1.7.3 前端构建成品，`quant-module/`保存 v0.4.2 完整开发源码；主产业研究 Agent 服务端由团队主工程接入。当前网页演示的模型、搜索与行情服务连接状态记录为未接通。
+
+            详细接口与集成方式见 [系统结构与对接](https://github.com/RhettWei/Chainpion-Industry-Chain-Analysis-Tool/blob/v1.7.3/docs/architecture.md)，四类模型的公式、参数及单位见 [模型与计算口径](https://github.com/RhettWei/Chainpion-Industry-Chain-Analysis-Tool/blob/v1.7.3/docs/models.md)。
+
+            ## 验证记录
+
+            - 量化模块 **75项自动化测试全部通过**。
+            - 两份演示案例复算结果与预期一致。
+            - 仓库交付的 **103个文件**已逐项核对 Git 对象校验值。
+            - 网页入口及直接引用的4项资源已通过本地 HTTP 读取检查。
+            - 文件清单和 SHA-256 记录见交付包中的 `release-manifest.json`；附件校验值见 `SHA256SUMS.txt`。
+
+            本版固定到提交 [`fa5051e`](https://github.com/RhettWei/Chainpion-Industry-Chain-Analysis-Tool/commit/fa5051ea0bf27304b3063d9c59b02cf67396316e)。
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, zipfile
+          from pathlib import Path
+
+          tag=os.environ['RELEASE_TAG']
+          folder=f'Chainpion-{tag}'
+          archive=Path(f'{folder}-delivery.zip')
+          with zipfile.ZipFile('source.zip') as source:
+              assert source.testzip() is None
+              prefix=source.namelist()[0].split('/')[0]+'/'
+              entries={i.filename[len(prefix):]:source.read(i) for i in source.infolist() if not i.is_dir()}
+          manifest=json.loads(entries['release-manifest.json'])
+          expected={row['path']:row for row in manifest['files']}
+          assert set(entries)==set(expected)|{'release-manifest.json'}
+          assert len(entries)==103
+          for name,row in expected.items():
+              assert len(entries[name])==row['bytes'], name
+              assert hashlib.sha256(entries[name]).hexdigest()==row['sha256'], name
+          with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as out:
+              for name in sorted(entries):
+                  out.writestr(folder+'/'+name,entries[name])
+          with zipfile.ZipFile(archive) as out:
+              assert out.testzip() is None
+              for name,raw in entries.items():
+                  assert out.read(folder+'/'+name)==raw
+          notes=Path('RELEASE-NOTES.md')
+          notes.write_text(os.environ['RELEASE_NOTES'],encoding='utf8')
+          Path('SHA256SUMS.txt').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n' for p in [archive,notes]),encoding='ascii')
+          print(json.dumps({'files':len(entries),'zipBytes':archive.stat().st_size,'sha256':hashlib.sha256(archive.read_bytes()).hexdigest()}))
+          PY
+
+      - name: Test the actual packaged files
+        run: |
+          unzip -q Chainpion-v1.7.3-delivery.zip -d verification
+          cd verification/Chainpion-v1.7.3
+          node --test
+          node examples/recalculate.mjs
+
+      - name: Publish the release and attachments
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo 'This version already has a release; existing releases are preserved.'
+            exit 1
+          fi
+          gh release create "$RELEASE_TAG" \
+            --target "$RELEASE_COMMIT" \
+            --title 'Chainpion v1.7.3｜产业链研究演示与独立量化模块' \
+            --notes-file RELEASE-NOTES.md \
+            --draft
+          gh release upload "$RELEASE_TAG" \
+            Chainpion-v1.7.3-delivery.zip SHA256SUMS.txt RELEASE-NOTES.md
+          gh release edit "$RELEASE_TAG" --draft=false --latest
