@@ -1,0 +1,12 @@
+{
+  "name": "futurechain-quant-module",
+  "version": "0.4.2",
+  "private": true,
+  "type": "module",
+  "description": "FutureChain 独立量化模块：可复算的经营情景与市场事件研究",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  }
+}

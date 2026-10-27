@@ -1,0 +1,518 @@
+{
+  "product": "Chainpion",
+  "frontendVersion": "1.7.3",
+  "quantModuleVersion": "0.4.2",
+  "releaseDate": "2026-10-27",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 467,
+      "sha256": "f99004a8923665ea65c0d1c9b891e5b44d49348f9af749805e036fe65e49db3d"
+    },
+    {
+      "path": "docs/architecture.md",
+      "bytes": 2727,
+      "sha256": "e4dbe0100d9bae6e1461c0f3f168c7f821a83d4bc1ba5d725935f974704c8f29"
+    },
+    {
+      "path": "docs/images/impact-contributions.png",
+      "bytes": 122464,
+      "sha256": "a14cb4370b81d7d01fb54912754527e13e007c33dcb0326db310e8380ea48379"
+    },
+    {
+      "path": "docs/images/industry-panorama.png",
+      "bytes": 701471,
+      "sha256": "cc70fbf6a12b9326a122235d61fbd7bd58cab641179a225e7f5d7072e90001ff"
+    },
+    {
+      "path": "docs/images/quant-workbench.png",
+      "bytes": 844512,
+      "sha256": "123708a547667db2ca2a0f65a382bc8bb5d671093f82b3dd2ffb087ede8a2066"
+    },
+    {
+      "path": "docs/models.md",
+      "bytes": 3012,
+      "sha256": "f2a7b8cc28aac77a0d4e7510dcc7c52a95595b77944f455916b59a1e44c81449"
+    },
+    {
+      "path": "docs/workflow.md",
+      "bytes": 2164,
+      "sha256": "b74cfeba179b90471ec88d6bc0c38c549dfd784993b79d4570423a2f857e3b6a"
+    },
+    {
+      "path": "examples/compute-input.json",
+      "bytes": 5749,
+      "sha256": "8d3ffabec332c8f0677333be5e4320b122ad961a9f9714515247d39c6c6eb52b"
+    },
+    {
+      "path": "examples/lithium-input.json",
+      "bytes": 6787,
+      "sha256": "e2dfbb27fde23a97381517e5a5a21eb87d493e6c31aa5b0110315fe1a109c952"
+    },
+    {
+      "path": "examples/README.md",
+      "bytes": 1115,
+      "sha256": "f7a6abf164ab9aecfc2012bf412a63758f8705fe4dac1f28fdbcef606fbaf5bd"
+    },
+    {
+      "path": "examples/recalculate.mjs",
+      "bytes": 830,
+      "sha256": "9f0d416fd9868d22dccc9ed724ff2474a43e6ffdacdf6e80345b7319ea69227a"
+    },
+    {
+      "path": "frontend/art/v14/compute-art.webp",
+      "bytes": 89096,
+      "sha256": "71e7c3661dd777a3985818d8a01dffd1f2a7d4a2e23fac635802d94f6ad741fc"
+    },
+    {
+      "path": "frontend/art/v14/industry-home.webp",
+      "bytes": 224506,
+      "sha256": "8de2bf948005a07bbe22b729a7051551b5050b33c0336d7719b1bc843044870b"
+    },
+    {
+      "path": "frontend/art/v14/lithium-art.webp",
+      "bytes": 82014,
+      "sha256": "5288718b3fbaf22033df23b1d46bce0757c49ed6e4d6fa7a51a2db561cd8d116"
+    },
+    {
+      "path": "frontend/art/v14/manifest.json",
+      "bytes": 2105,
+      "sha256": "9398797b97b76c9969cf0d63d8c64bc36fb84eb76ab10e74459a1869ad2585bd"
+    },
+    {
+      "path": "frontend/art/v171/chainpion-calligraphy-horizontal.webp",
+      "bytes": 89998,
+      "sha256": "7e879623ba007888077d6f9c9301aa6b84bc979960cb081136c72a577e2a29a5"
+    },
+    {
+      "path": "frontend/art/v171/chainpion-calligraphy-original.webp",
+      "bytes": 131254,
+      "sha256": "ec2469f469b9552616b58620b3837dc6e331625d97e34624caa0bb6e19ee7588"
+    },
+    {
+      "path": "frontend/art/v171/chainpion-mark.webp",
+      "bytes": 29538,
+      "sha256": "7ee894f48cf234cf620285cfb1ef5f7dbe26e4cda4fa7c78952863747dbec229"
+    },
+    {
+      "path": "frontend/art/v171/silver-flow.webp",
+      "bytes": 55642,
+      "sha256": "be46ebb2b9ec3d00d72558353126a5f74dd5d53fd3339661e8817f8046b2e7e6"
+    },
+    {
+      "path": "frontend/art/v172/chainpion-calligraphy-ink.png",
+      "bytes": 595854,
+      "sha256": "ee26d48a179abe6d961ce7b7f1437db32f638f129b3eeb76c9416a4849ea31ea"
+    },
+    {
+      "path": "frontend/art-assets.json",
+      "bytes": 2665,
+      "sha256": "dab2d4e118c93386d9b757d64f888ad36a0352c29a3cb21d82e0a101905800cf"
+    },
+    {
+      "path": "frontend/assets/file-text-BJ8tZUmA.js",
+      "bytes": 517,
+      "sha256": "21912f9e87600b189c875d69a3e96dd62f90d844c5f21fe3dd3af902570d930f"
+    },
+    {
+      "path": "frontend/assets/index-C9h2KK2d.css",
+      "bytes": 102445,
+      "sha256": "822c83537b996890a75c41fa8549e37d6aecc82288ecba76485ea46303eb8369"
+    },
+    {
+      "path": "frontend/assets/index-DVvpMUb9.js",
+      "bytes": 960160,
+      "sha256": "4b20b63dd429503da2256a1ad55d941035404191c8360412c04c0f95d8de0058"
+    },
+    {
+      "path": "frontend/assets/jsx-runtime-DLNB9Qsn.js",
+      "bytes": 8266,
+      "sha256": "c04dd52ab403d600f6e1abcd98315dd38b864a3a8c060011c2757edd1a24e9b2"
+    },
+    {
+      "path": "frontend/assets/layers-B_zgFKEU.js",
+      "bytes": 472,
+      "sha256": "dfe701d929c865ce9e2e5f48cdbf4e06e71d96dfd123a3a60353febccece7db5"
+    },
+    {
+      "path": "frontend/assets/LibraryPage-CnvEE2gL.js",
+      "bytes": 16823,
+      "sha256": "8a683d5ec0b56fd13bf3b009c0797554c268d21fcd17644e8f6f768e86bc174e"
+    },
+    {
+      "path": "frontend/assets/LibraryPage-Ds08pRqe.css",
+      "bytes": 10082,
+      "sha256": "24be8cb19a61662cbb2fe864a482d4d68a66792bc532248705c8215dcea17cb6"
+    },
+    {
+      "path": "frontend/assets/PanoramaView-DDfNi4hY.css",
+      "bytes": 10703,
+      "sha256": "cdeca011a831c764161a6bc087f1559dbad63230f0ee9864420eddfddc94a297"
+    },
+    {
+      "path": "frontend/assets/PanoramaView-DfeEj67r.js",
+      "bytes": 25446,
+      "sha256": "33b6f68f497c8e3cb84e668f60e3ee53c06f607584391cbac8dbe004777a7e76"
+    },
+    {
+      "path": "frontend/assets/ProjectsPage-077dmz5k.css",
+      "bytes": 8700,
+      "sha256": "c6ce4778be64e56fad9f51e33b86865c161d23a6dd3886c3537ab60299810351"
+    },
+    {
+      "path": "frontend/assets/ProjectsPage-Ds2e1ojM.js",
+      "bytes": 14993,
+      "sha256": "527934080bc130ff54adfea63a1a4d9ffc5573c5da5b6b6ceac1e006058a6237"
+    },
+    {
+      "path": "frontend/assets/QuantWorkbench-C4B5DDoF.css",
+      "bytes": 57018,
+      "sha256": "dfe01b4b2d9965888dd36b020495c63e0ad70692efff1ab44f62f14aeb6375b1"
+    },
+    {
+      "path": "frontend/assets/QuantWorkbench-Y4AievKf.js",
+      "bytes": 171032,
+      "sha256": "50d9bf443243db699653dae1f4a5198efce404f4788f9cc622301b994c2f2574"
+    },
+    {
+      "path": "frontend/assets/SceneCanvas-cu5OJzOq.css",
+      "bytes": 9987,
+      "sha256": "710f65ce0a43c66449ace3f162bed0c1db089bb80a32a5078280b574cc3ed483"
+    },
+    {
+      "path": "frontend/assets/SceneCanvas-DUl-0Zur.js",
+      "bytes": 176075,
+      "sha256": "909ea1f5d620acf90f0686904ceedf5d8da764bf24b2128aca4a7993ebe0c7f0"
+    },
+    {
+      "path": "frontend/assets/SettingsPage-CHx9QS9q.css",
+      "bytes": 6953,
+      "sha256": "9ddb48694062b2476524e7cd906a429abdff0b8c77007b22270eadf50e91c4d2"
+    },
+    {
+      "path": "frontend/assets/SettingsPage-CwlHL-E2.js",
+      "bytes": 16863,
+      "sha256": "f1b547bd753badc087fee0d78c46c96d412a0d91347ab5decab6fcb7ff4d0a1c"
+    },
+    {
+      "path": "frontend/assets/three.module-D_te9LWc.js",
+      "bytes": 526564,
+      "sha256": "de9043d09be03b5deb58ecded8276de93567760de6d7b090f289e79f766d7e1c"
+    },
+    {
+      "path": "frontend/assets/upload-BTPbSwZC.js",
+      "bytes": 483,
+      "sha256": "9992a1c1c965f64a84140afa00b9b56f7b7c23d9ced55086b5c82eb4af5c6145"
+    },
+    {
+      "path": "frontend/case-compute-v12.png",
+      "bytes": 32901,
+      "sha256": "6125c65a0f0a23ed98aed4dc78ebbb4ae7a3fc251e35c90e26bef349ae09325d"
+    },
+    {
+      "path": "frontend/case-compute-v13.png",
+      "bytes": 32736,
+      "sha256": "69a8227900cb54bfbb9d970039952f249511c556f884261c531292e2ccfae40f"
+    },
+    {
+      "path": "frontend/case-lithium-v12.png",
+      "bytes": 63921,
+      "sha256": "af6cb4ff1520c5f51cbfb1071c3f9f9c1ae3d937726f9ee3bc59989e937071cf"
+    },
+    {
+      "path": "frontend/case-lithium-v13.png",
+      "bytes": 69302,
+      "sha256": "3aeedd31853c187fd25d59e8ac1455e1589ca2d42a5500fe0d33b29cdc90d117"
+    },
+    {
+      "path": "frontend/chainpion-concept-logo.png",
+      "bytes": 605900,
+      "sha256": "8411976e45e58a6d9b97332aedc16e54b67028a25ef6930dc41d5c009bf0a7e9"
+    },
+    {
+      "path": "frontend/chainpion-mark-v2.png",
+      "bytes": 492293,
+      "sha256": "9f7dbe1e09996877bcd4c0267ea16739cb5747b62ada55caadc8d4ee7d9ad058"
+    },
+    {
+      "path": "frontend/chainpion-mark-v3.svg",
+      "bytes": 692,
+      "sha256": "aef613dcd1951e36c8f59b332c9ebdcd880469be945a86614e530fe5d9698b4d"
+    },
+    {
+      "path": "frontend/fonts/ibm-plex-sans-v14.woff2",
+      "bytes": 84128,
+      "sha256": "b041353e6134a51e1882bc815b3c4858c194f835e7cb4d2a430f51db9f8a5715"
+    },
+    {
+      "path": "frontend/fonts/noto-OFL.txt",
+      "bytes": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "path": "frontend/fonts/noto-sans-sc-v14.woff2",
+      "bytes": 361732,
+      "sha256": "ebab82e134c43fde747f15d40cb89c74a11e6670c2b33176a482be6e7a0fd14a"
+    },
+    {
+      "path": "frontend/fonts/plex-OFL.txt",
+      "bytes": 4456,
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "path": "frontend/index.html",
+      "bytes": 671,
+      "sha256": "e69fdfc70bba0b7606a949f359d6b5b55a3fb81a9c1ea3f63db7cb185ed9a8b9"
+    },
+    {
+      "path": "frontend/THIRD-PARTY-NOTICES.txt",
+      "bytes": 18359,
+      "sha256": "64cb4ba8a9962fb92758fe5e5d1ca6bfc7606525b09917b5e9b1c191ac310097"
+    },
+    {
+      "path": "frontend-version.json",
+      "bytes": 326,
+      "sha256": "5e294b84d162ce9a7966847d139e62d5d17eede5e16f624f7ef14c66f32ae067"
+    },
+    {
+      "path": "package.json",
+      "bytes": 346,
+      "sha256": "317b41527de814e2b882ae834bd96e9354df015b208dc6036775da3b3196c942"
+    },
+    {
+      "path": "quant-module/.env.example",
+      "bytes": 255,
+      "sha256": "19376489b9218537672f14136e627dfa26b29a492d14356a256125087dcc6397"
+    },
+    {
+      "path": "quant-module/.gitignore",
+      "bytes": 62,
+      "sha256": "f8022815bf9c25382aec503581c9c9b1b1ac4238bd7a54bf888ace881e5ff092"
+    },
+    {
+      "path": "quant-module/contracts/input.schema.json",
+      "bytes": 9932,
+      "sha256": "971c38dd065eeda056645b9f46f632f686161c50b24d71c787ffdf43997d51ab"
+    },
+    {
+      "path": "quant-module/examples/事件研究请求_合成行情.json",
+      "bytes": 38732,
+      "sha256": "ab5eb537bb748a16721a1d855132aaabc8ae582684c7d92e8eb6afab54cfb084"
+    },
+    {
+      "path": "quant-module/examples/成本传导输入_虚构.json",
+      "bytes": 2476,
+      "sha256": "1b686db4b35c3c23a1ceb81b3a1717166fb63af65a650f53b83939ef95e25b88"
+    },
+    {
+      "path": "quant-module/examples/盈亏平衡输入_虚构.json",
+      "bytes": 2489,
+      "sha256": "f3be2b6ac68822fe75d362f269b4d53f4a4b7a1858cbde8b8b739f7df713a59a"
+    },
+    {
+      "path": "quant-module/examples/量价利润输入_虚构.json",
+      "bytes": 2455,
+      "sha256": "e872c5fef1865f2e361494fc53a20ee1921d568daed6519c2bab22e8f3659ad4"
+    },
+    {
+      "path": "quant-module/package.json",
+      "bytes": 312,
+      "sha256": "3ed5e1ef9382366f426449698f3e7546649265ec7a410a0a1dfc0cf1ecb2d929"
+    },
+    {
+      "path": "quant-module/public/app.mjs",
+      "bytes": 59662,
+      "sha256": "57bc8a86ee00339285565d4d729c9b03f84e7ee923dfdc50a3ab098f7c41d9fd"
+    },
+    {
+      "path": "quant-module/public/dialogs.mjs",
+      "bytes": 2645,
+      "sha256": "183638be854dce7cf81b5fb94d128cfd30ed23b9e25869d9bd0d65ee7368b30b"
+    },
+    {
+      "path": "quant-module/public/entity-workflow.mjs",
+      "bytes": 5571,
+      "sha256": "2dad6157fd37d1e3a5a07e0c64fb33807fc774841444f5091e2e8ea4c3ae58a2"
+    },
+    {
+      "path": "quant-module/public/impact-charts.mjs",
+      "bytes": 10079,
+      "sha256": "53a86cd1588c484c6c26fa26978305f591c35aec2acdac7424436f6a3849954e"
+    },
+    {
+      "path": "quant-module/public/index.html",
+      "bytes": 17362,
+      "sha256": "18e4353f82e6aa5ec857d7d873ff16acd4961d1a698eb301e3a9c1a134fc8c2c"
+    },
+    {
+      "path": "quant-module/public/preparation.mjs",
+      "bytes": 27291,
+      "sha256": "12fc5a409271d05f2626c62ae701b742af35685f36a3b3387f5593674b7ffa7c"
+    },
+    {
+      "path": "quant-module/public/styles.css",
+      "bytes": 21000,
+      "sha256": "771b71253645cef2a823320838e7665157fe26491669f000d0a556d26d64e19c"
+    },
+    {
+      "path": "quant-module/public/workflow.css",
+      "bytes": 11808,
+      "sha256": "da4d1d66c2ad4704538fded49074213df55c2581cf843c938b03b0f3e22c06da"
+    },
+    {
+      "path": "quant-module/public/workflow.mjs",
+      "bytes": 18684,
+      "sha256": "b388d9e15710de10f4e11b542eb92f60541578830fd993fd7a6af0086787e39d"
+    },
+    {
+      "path": "quant-module/README.md",
+      "bytes": 24767,
+      "sha256": "b1d9465c2a9e2fda7b8e2237b8a1bbc23655776d190b15e364902dd7cf97cdd1"
+    },
+    {
+      "path": "quant-module/scripts/package-share.mjs",
+      "bytes": 5582,
+      "sha256": "fe718c311ae668b6c09c6aff14fea3cb12bb27a0b90f1ea7fae326e522db1645"
+    },
+    {
+      "path": "quant-module/server.mjs",
+      "bytes": 16485,
+      "sha256": "789f2dec5f22653646aa019fd51a924e8b1ce50e8de02cf5ff9767d325eb8dc2"
+    },
+    {
+      "path": "quant-module/src/core.mjs",
+      "bytes": 27081,
+      "sha256": "80c25f0ad5a70555c788b229ffdc73e015163ce4bbf66cfa6583df511fa15c35"
+    },
+    {
+      "path": "quant-module/src/demo.mjs",
+      "bytes": 5812,
+      "sha256": "ae5268c0229dc5d8a3c850a286682b262f8a8397897e087bd15a22e00e715fee"
+    },
+    {
+      "path": "quant-module/src/display.mjs",
+      "bytes": 838,
+      "sha256": "135a6d31c9f11b794359de41429386cd97eb7160f87bdcc4e5c7e47dc19b454e"
+    },
+    {
+      "path": "quant-module/src/materials.mjs",
+      "bytes": 21671,
+      "sha256": "4eeef52d0b240f5b7a73161bbe26e46f7a0b98947d295a6cc1fdf996c0f13e4c"
+    },
+    {
+      "path": "quant-module/src/models.mjs",
+      "bytes": 23416,
+      "sha256": "37cb702d0d0eb7db8765ba15cf1adb1d0f60f1267d56123a3d1c41d98506bcd1"
+    },
+    {
+      "path": "quant-module/src/references.mjs",
+      "bytes": 8478,
+      "sha256": "5f3d18ef61a6e402921d7640ab57a849f8abced89e1d2ad61024603b855127e2"
+    },
+    {
+      "path": "quant-module/src/reports.mjs",
+      "bytes": 36543,
+      "sha256": "a154b82b507cea0b9b6b04336870aa0ccaa2556bd7bffa087a50483f1ce25bb4"
+    },
+    {
+      "path": "quant-module/src/scenarios.mjs",
+      "bytes": 14067,
+      "sha256": "f50448e4d99019b2f425f075e9301c98ef76597b93a1270aaf3cc68689c5f78c"
+    },
+    {
+      "path": "quant-module/src/visual-data.mjs",
+      "bytes": 1603,
+      "sha256": "cebde35bf972512421451ed7a853e6008b48c834246bd5aceb0b1a433ba76024"
+    },
+    {
+      "path": "quant-module/start.ps1",
+      "bytes": 417,
+      "sha256": "c93d69c37ffe94b41ad77f90a687a019be40d570992f85f412d5ae02cbf20ee5"
+    },
+    {
+      "path": "quant-module/test/contract.test.mjs",
+      "bytes": 5017,
+      "sha256": "4e6b75e464e7d6490f59cab9cb4ded4ad8ca0981431afc14686a6d86ef5e0bd0"
+    },
+    {
+      "path": "quant-module/test/core.test.mjs",
+      "bytes": 7407,
+      "sha256": "e55d6f7d3b9d2032161a9db19ed394cdd4e729ed89ac45f25b8b64aadb0301a5"
+    },
+    {
+      "path": "quant-module/test/entity-scenarios.test.mjs",
+      "bytes": 7952,
+      "sha256": "f1cb5602a46bfb29dd625c0330a3a6b93153fa1047eb86c269082029222420f7"
+    },
+    {
+      "path": "quant-module/test/fixtures/entity-cost-decline.json",
+      "bytes": 1992,
+      "sha256": "83bda5eb605ede3064d13b45fd7ddece9ce9462cb877cb65ab985ee1e601f201"
+    },
+    {
+      "path": "quant-module/test/fixtures/sparse.json",
+      "bytes": 451,
+      "sha256": "2332fed2c05b1b5452147275a467529f57b1fba53383f1c129a93b706cb290a1"
+    },
+    {
+      "path": "quant-module/test/materials.test.mjs",
+      "bytes": 10245,
+      "sha256": "85056464d3e8d008b64e298d26c632fb8d1165e542318c71d7934c022f779ef0"
+    },
+    {
+      "path": "quant-module/test/model-export.test.mjs",
+      "bytes": 3374,
+      "sha256": "3c07bd6b11a0e0042f5aad98e9deb67303129f4b1d0b18b0a2a9990b1a772be8"
+    },
+    {
+      "path": "quant-module/test/models.test.mjs",
+      "bytes": 12853,
+      "sha256": "3aa20c5ef502f2c3a49adb99d9b1b029867810cd50b02aeee8fe479e46f48ab6"
+    },
+    {
+      "path": "quant-module/test/references.test.mjs",
+      "bytes": 6102,
+      "sha256": "95e3d5006c2546926f3ef1b89e16680ea25f7f899674ad2761baa3f31e244d07"
+    },
+    {
+      "path": "quant-module/test/server.test.mjs",
+      "bytes": 12347,
+      "sha256": "b62c82ec22ba1547f1f8eea95e9a42051260c5ee932e3baa860103b653ce851a"
+    },
+    {
+      "path": "quant-module/test/ui-contract.test.mjs",
+      "bytes": 1577,
+      "sha256": "0717e1f2ec8334e5e69e332aa58f7ad5fe26355f24d3a6cde51096e20630f528"
+    },
+    {
+      "path": "quant-module/test/visual-regression.test.mjs",
+      "bytes": 6624,
+      "sha256": "1c8d1686e1bcc7caec212568855f50004ea1841f8ac3081505f4dcfe0168a7cc"
+    },
+    {
+      "path": "quant-module/交付验收.md",
+      "bytes": 2958,
+      "sha256": "448a652a918b48fffde1bbc71ce97c2dcdad9733aeab544f8e016ea7413c2216"
+    },
+    {
+      "path": "quant-module/启动与对接说明.md",
+      "bytes": 13053,
+      "sha256": "c4b3c1e2aae98510776b962378945eaef67f3c904aba210c26ec1bcb5feb21a9"
+    },
+    {
+      "path": "quant-module/启动量化模块.cmd",
+      "bytes": 216,
+      "sha256": "8d847f7d65d8dd7f9484e87bc5bfb02713f9c598805ca5fb1d5140f2f1284d9c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6760,
+      "sha256": "ca6e6a35d261b3bf4e2f1171292d7526042a6f0c6a5d272f36f035fa56706b7e"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "bytes": 18359,
+      "sha256": "64cb4ba8a9962fb92758fe5e5d1ca6bfc7606525b09917b5e9b1c191ac310097"
+    }
+  ]
+}

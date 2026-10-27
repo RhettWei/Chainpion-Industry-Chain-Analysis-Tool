@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:futurechain:quant:input:1.0",
+  "title": "FutureChain 独立量化模块输入 1.0",
+  "description": "初版金额统一为人民币万元，使用同期间财务基线，不自动年化；百分比以 10 表示 10%，缺失财务必须保留 null 或省略。JSON 自身不允许 NaN/Infinity。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "context"],
+  "allOf": [{
+    "if": {
+      "required": ["analysis"],
+      "properties": { "analysis": { "required": ["model"], "properties": { "model": { "const": "event_study" } } } }
+    },
+    "then": {
+      "description": "市场事件研究不要求经营参数、企业财务基线或财务期间；companies 和 evidence 可省略或为空。"
+    },
+    "else": {
+      "required": ["parameters", "companies"],
+      "properties": {
+        "context": { "required": ["periodLabel"] },
+        "parameters": { "required": ["shockPct", "volumePct", "passThroughPct", "exposurePct", "lagMonths", "horizonMonths"] },
+        "analysis": { "properties": { "baselineReview": { "required": ["periodLabel"] } } }
+      }
+    }
+  }],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "analysis": {
+      "type": "object", "additionalProperties": false, "required": ["model"],
+      "properties": {
+        "model": { "enum": ["cost_transmission", "volume_price", "break_even", "event_study"] },
+        "scenarioMode": { "const": "entity" },
+        "marketMethod": { "enum": ["market_adjusted", "market_model"] },
+        "eventMapping": { "type": "object", "additionalProperties": false, "required": ["description", "eventDate", "modelId", "reviewedAt"], "properties": { "description": { "type": "string" }, "eventDate": { "$ref": "#/$defs/date" }, "modelId": { "type": "string" }, "reviewedAt": { "type": "string", "format": "date-time" } } },
+        "baselineReview": {
+          "type": "object", "additionalProperties": false, "required": ["confirmedAt", "fields"],
+          "properties": {
+            "confirmedAt": { "type": "string", "format": "date-time" },
+            "periodLabel": { "type": "string", "maxLength": 300 },
+            "scopes": { "type": "array", "maxItems": 100, "items": { "type": "object", "additionalProperties": false, "required": ["id", "scope"], "properties": { "id": { "type": "string" }, "scope": { "$ref": "#/$defs/businessScope" } } } },
+            "fields": { "type": "array", "maxItems": 500, "items": {
+              "type": "object", "additionalProperties": false, "required": ["companyId", "field", "value", "kind"],
+              "properties": {
+                "companyId": { "type": "string", "minLength": 1, "maxLength": 100 },
+                "field": { "enum": ["baselineRevenue", "baselineGrossMarginPct", "rawMaterialCostSharePct", "variableCostSharePct", "fixedOperatingCost"] },
+                "value": { "type": "number" }, "kind": { "enum": ["user", "reference", "assumption"] },
+                "evidenceId": { "type": "string", "minLength": 1, "maxLength": 100 },
+                "route": { "$ref": "#/$defs/sourceRoute" },
+                "review": { "$ref": "#/$defs/sourceReview" }
+              },
+              "allOf": [{ "$ref": "#/$defs/sourceRouteRules" }]
+            } }
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["industry", "eventDescription", "eventDate", "asOf"],
+      "properties": {
+        "industry": { "type": "string", "maxLength": 300 },
+        "eventDescription": { "type": "string", "maxLength": 10000 },
+        "eventDate": { "$ref": "#/$defs/dateOrEmpty" },
+        "asOf": { "$ref": "#/$defs/dateOrEmpty" },
+        "periodLabel": { "type": "string", "maxLength": 300 }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shockPct": { "type": "number", "minimum": -90, "maximum": 200 },
+        "volumePct": { "type": "number", "minimum": -90, "maximum": 100 },
+        "passThroughPct": { "$ref": "#/$defs/percentage" },
+        "exposurePct": { "$ref": "#/$defs/percentage" },
+        "lagMonths": { "type": "integer", "minimum": 0, "maximum": 36 },
+        "horizonMonths": { "type": "integer", "minimum": 1, "maximum": 36 }
+      }
+    },
+    "companies": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "role", "shockChannel"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 100 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 300 },
+          "role": { "enum": ["upstream", "midstream", "downstream", "other"] },
+          "shockChannel": { "enum": ["selling_price", "cost"] },
+          "baselineRevenue": { "type": ["number", "null"], "exclusiveMinimum": 0, "maximum": 1000000000000000 },
+          "baselineGrossMarginPct": { "type": ["number", "null"], "minimum": -100, "maximum": 100 },
+          "rawMaterialCostSharePct": { "$ref": "#/$defs/nullablePercentage" },
+          "variableCostSharePct": { "$ref": "#/$defs/nullablePercentage" },
+          "fixedOperatingCost": { "$ref": "#/$defs/nullableMoney" },
+          "scope": { "$ref": "#/$defs/businessScope" },
+          "scenario": { "$ref": "#/$defs/entityScenario" },
+          "baselineSources": {
+            "type": "object", "additionalProperties": false,
+            "properties": {
+              "baselineRevenue": { "$ref": "#/$defs/fieldSource" },
+              "baselineGrossMarginPct": { "$ref": "#/$defs/fieldSource" },
+              "rawMaterialCostSharePct": { "$ref": "#/$defs/fieldSource" },
+              "variableCostSharePct": { "$ref": "#/$defs/fieldSource" },
+              "fixedOperatingCost": { "$ref": "#/$defs/fieldSource" }
+            }
+          },
+          "evidenceIds": { "type": "array", "uniqueItems": true, "maxItems": 100, "items": { "type": "string", "minLength": 1, "maxLength": 100 } }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "title", "source"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1, "maxLength": 100 },
+          "kind": { "enum": ["observed", "assumption", "user"] },
+          "title": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "source": { "type": "string", "minLength": 1, "maxLength": 2000 },
+          "description": { "type": "string", "maxLength": 10000 },
+          "locator": { "type": "string", "maxLength": 2000 },
+          "publishedAt": { "$ref": "#/$defs/date" },
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://", "maxLength": 4000 },
+          "page": { "type": ["string", "integer"], "maxLength": 100, "minimum": 1 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "businessScope": { "type": "object", "additionalProperties": false, "required": ["level", "product"], "properties": { "level": { "enum": ["company", "segment", "product"] }, "product": { "type": "string", "minLength": 1, "maxLength": 300 }, "costItem": { "type": "string", "maxLength": 300 }, "unit": { "type": "string", "maxLength": 100 } } },
+    "entityScenario": { "type": "object", "additionalProperties": false, "required": ["affected", "pricePct", "volumePct", "costPct", "passThroughPct", "lagMonths", "fixedExpensePct"], "properties": { "affected": { "type": "boolean" }, "pricePct": { "type": "number", "minimum": -90, "maximum": 200 }, "volumePct": { "type": "number", "minimum": -90, "maximum": 100 }, "costPct": { "type": "number", "minimum": -90, "maximum": 200 }, "passThroughPct": { "type": "number", "minimum": 0, "maximum": 100 }, "lagMonths": { "type": "integer", "minimum": 0, "maximum": 36 }, "fixedExpensePct": { "type": "number", "minimum": -100, "maximum": 200 } } },
+    "fieldSource": {
+      "type": "object", "additionalProperties": false, "required": ["kind"],
+      "properties": {
+        "kind": { "enum": ["user", "reference", "assumption"] },
+        "evidenceId": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "route": { "$ref": "#/$defs/sourceRoute" },
+        "review": { "$ref": "#/$defs/sourceReview" }
+      },
+      "allOf": [{ "$ref": "#/$defs/sourceRouteRules" }]
+    },
+    "sourceRoute": { "enum": ["assumption", "materials", "online"] },
+    "sourceReview": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "reviewedAt", "period"],
+      "properties": {
+        "status": { "const": "approved" },
+        "reviewedAt": { "type": "string", "format": "date-time", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,9})?(?:Z|[+-]\\d{2}:\\d{2})$" },
+        "period": { "type": "string", "minLength": 1, "maxLength": 300 }
+      }
+    },
+    "sourceRouteRules": {
+      "allOf": [
+        {
+          "if": { "required": ["route"], "properties": { "route": { "const": "assumption" } } },
+          "then": { "properties": { "kind": { "const": "assumption" } } }
+        },
+        {
+          "if": { "required": ["route"], "properties": { "route": { "enum": ["materials", "online"] } } },
+          "then": { "required": ["evidenceId", "review"], "properties": { "kind": { "const": "reference" } } }
+        }
+      ]
+    },
+    "date": { "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "dateOrEmpty": { "anyOf": [{ "$ref": "#/$defs/date" }, { "const": "" }] },
+    "percentage": { "type": "number", "minimum": 0, "maximum": 100 },
+    "nullablePercentage": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+    "nullableMoney": { "type": ["number", "null"], "minimum": 0, "maximum": 1000000000000000 }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0",
+  "analysis": {
+    "model": "volume_price",
+    "scenarioMode": "entity"
+  },
+  "context": {
+    "industry": "机器人 · 灵巧手（虚构验收）",
+    "eventDescription": "虚构灵巧手业务平均售价提高10%（研究假设）",
+    "eventDate": "2026-10-01",
+    "asOf": "2026-10-08",
+    "periodLabel": "年度业务基线（万元，全部虚构）"
+  },
+  "parameters": {
+    "shockPct": 0,
+    "volumePct": 0,
+    "passThroughPct": 0,
+    "exposurePct": 100,
+    "lagMonths": 0,
+    "horizonMonths": 12
+  },
+  "companies": [
+    {
+      "id": "entity-a",
+      "name": "宇树科技（虚构测算）",
+      "role": "upstream",
+      "shockChannel": "cost",
+      "baselineRevenue": 1000,
+      "baselineGrossMarginPct": 20,
+      "rawMaterialCostSharePct": 50,
+      "variableCostSharePct": 75,
+      "fixedOperatingCost": 100,
+      "evidenceIds": [
+        "synthetic"
+      ],
+      "scope": {
+        "level": "product",
+        "product": "灵巧手产品业务（虚构）",
+        "costItem": "电机采购成本（虚构）",
+        "unit": "综合均价指数"
+      },
+      "scenario": {
+        "affected": true,
+        "pricePct": 10,
+        "volumePct": 0,
+        "costPct": 0,
+        "passThroughPct": 0,
+        "lagMonths": 0,
+        "fixedExpensePct": 0
+      }
+    },
+    {
+      "id": "entity-b",
+      "name": "另一家上游企业（虚构）",
+      "role": "upstream",
+      "shockChannel": "cost",
+      "baselineRevenue": 1000,
+      "baselineGrossMarginPct": 20,
+      "rawMaterialCostSharePct": 50,
+      "variableCostSharePct": 75,
+      "fixedOperatingCost": 100,
+      "evidenceIds": [
+        "synthetic"
+      ],
+      "scope": {
+        "level": "product",
+        "product": "同类灵巧手产品（虚构）",
+        "costItem": "电机采购成本（虚构）",
+        "unit": "综合均价指数"
+      },
+      "scenario": {
+        "affected": false,
+        "pricePct": 0,
+        "volumePct": 0,
+        "costPct": 0,
+        "passThroughPct": 0,
+        "lagMonths": 0,
+        "fixedExpensePct": 0
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "synthetic",
+      "kind": "assumption",
+      "title": "v0.4 功能验收用虚构基线",
+      "source": "人工合成，非宇树科技财务或公告数据",
+      "description": "所有金额、成本结构和事件影响均为虚构，仅用于核验独立对象计算与图表。"
+    }
+  ]
+}

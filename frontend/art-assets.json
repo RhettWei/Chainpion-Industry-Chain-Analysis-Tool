@@ -1,0 +1,70 @@
+{
+  "version": "1.7.2",
+  "assets": [
+    {
+      "id": "v171-chainpion-mark",
+      "path": "/art/v171/chainpion-mark.webp",
+      "bytes": 29538,
+      "sha256": "7ee894f48cf234cf620285cfb1ef5f7dbe26e4cda4fa7c78952863747dbec229",
+      "original": "design/brand-v171/chainpion-mark.png",
+      "dimensions": [384, 384],
+      "hasAlpha": true,
+      "alphaRange": [0, 255],
+      "role": "brand artwork",
+      "generator": "built-in image_gen",
+      "promptVersion": "design/brand-v171/prompts.json#chainpion-mark"
+    },
+    {
+      "id": "v171-chainpion-calligraphy-horizontal",
+      "path": "/art/v171/chainpion-calligraphy-horizontal.webp",
+      "bytes": 89998,
+      "sha256": "7e879623ba007888077d6f9c9301aa6b84bc979960cb081136c72a577e2a29a5",
+      "original": "design/brand-v171/chainpion-calligraphy-horizontal.png",
+      "dimensions": [720, 300],
+      "hasAlpha": true,
+      "alphaRange": [0, 255],
+      "role": "brand artwork",
+      "generator": "built-in image_gen",
+      "promptVersion": "design/brand-v171/prompts.json#chainpion-calligraphy-horizontal"
+    },
+    {
+      "id": "v171-chainpion-calligraphy-original",
+      "path": "/art/v171/chainpion-calligraphy-original.webp",
+      "bytes": 131254,
+      "sha256": "ec2469f469b9552616b58620b3837dc6e331625d97e34624caa0bb6e19ee7588",
+      "original": "design/brand-v171/chainpion-calligraphy-original.png",
+      "dimensions": [640, 853],
+      "hasAlpha": true,
+      "alphaRange": [0, 255],
+      "role": "brand artwork",
+      "generator": "built-in image_gen",
+      "promptVersion": "design/brand-v171/prompts.json#chainpion-calligraphy-original"
+    },
+    {
+      "id": "v171-silver-flow",
+      "path": "/art/v171/silver-flow.webp",
+      "bytes": 55642,
+      "sha256": "be46ebb2b9ec3d00d72558353126a5f74dd5d53fd3339661e8817f8046b2e7e6",
+      "original": "design/brand-v171/silver-flow.png",
+      "dimensions": [1672, 941],
+      "hasAlpha": false,
+      "alphaRange": null,
+      "role": "decorative material, not research data",
+      "generator": "built-in image_gen",
+      "promptVersion": "design/brand-v171/prompts.json#silver-flow"
+    },
+    {
+      "id": "v172-chainpion-calligraphy-ink",
+      "path": "/art/v172/chainpion-calligraphy-ink.png",
+      "bytes": 595854,
+      "sha256": "ee26d48a179abe6d961ce7b7f1437db32f638f129b3eeb76c9416a4849ea31ea",
+      "original": "public/art/v172/chainpion-calligraphy-ink.png",
+      "dimensions": [1086, 1448],
+      "hasAlpha": true,
+      "alphaRange": [0, 255],
+      "role": "brand artwork",
+      "generator": "user-provided original",
+      "rendering": "original black ink, unmodified transparent PNG"
+    }
+  ]
+}

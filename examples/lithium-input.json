@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0",
+  "analysis": {
+    "model": "cost_transmission",
+    "scenarioMode": "entity",
+    "inputPolicy": "direct-entry-v2",
+    "fieldProvenance": [
+      {
+        "companyId": "event-lithium-product",
+        "field": "baselineRevenue",
+        "value": 0.01,
+        "route": "assumption",
+        "sourceId": "event-lithium-assumptions",
+        "evidenceId": "baseline-event-lithium-product-baselineRevenue",
+        "verification": "not_independently_verified"
+      },
+      {
+        "companyId": "event-lithium-product",
+        "field": "baselineGrossMarginPct",
+        "value": 30,
+        "route": "assumption",
+        "sourceId": "event-lithium-assumptions",
+        "evidenceId": "baseline-event-lithium-product-baselineGrossMarginPct",
+        "verification": "not_independently_verified"
+      },
+      {
+        "companyId": "event-lithium-product",
+        "field": "variableCostSharePct",
+        "value": 80,
+        "route": "assumption",
+        "sourceId": "event-lithium-assumptions",
+        "evidenceId": "baseline-event-lithium-product-variableCostSharePct",
+        "verification": "not_independently_verified"
+      },
+      {
+        "companyId": "event-lithium-product",
+        "field": "rawMaterialCostSharePct",
+        "value": 20,
+        "route": "assumption",
+        "sourceId": "event-lithium-assumptions",
+        "evidenceId": "baseline-event-lithium-product-rawMaterialCostSharePct",
+        "verification": "not_independently_verified"
+      },
+      {
+        "companyId": "event-lithium-product",
+        "field": "fixedOperatingCost",
+        "value": 0,
+        "route": "assumption",
+        "sourceId": "event-lithium-assumptions",
+        "evidenceId": "baseline-event-lithium-product-fixedOperatingCost",
+        "verification": "not_independently_verified"
+      }
+    ]
+  },
+  "context": {
+    "industry": "锂电池产业链",
+    "eventDescription": "碳酸锂价格下降 10%",
+    "eventDate": "2026-10-12",
+    "asOf": "2026-10-12",
+    "periodLabel": "规范化产品业务基线；90 天观察窗口；未按时间缩放金额"
+  },
+  "parameters": {
+    "shockPct": 0,
+    "volumePct": 0,
+    "passThroughPct": 0,
+    "exposurePct": 100,
+    "lagMonths": 0,
+    "horizonMonths": 3
+  },
+  "companies": [
+    {
+      "id": "event-lithium-product",
+      "name": "电芯产品",
+      "role": "midstream",
+      "shockChannel": "cost",
+      "baselineRevenue": 0.01,
+      "baselineGrossMarginPct": 30,
+      "variableCostSharePct": 80,
+      "rawMaterialCostSharePct": 20,
+      "fixedOperatingCost": 0,
+      "scope": {
+        "level": "product",
+        "product": "电芯产品业务",
+        "costItem": "碳酸锂相关采购材料",
+        "unit": "综合均价指数"
+      },
+      "scenario": {
+        "affected": true,
+        "costPct": -10,
+        "pricePct": 0,
+        "volumePct": 0,
+        "passThroughPct": 0,
+        "lagMonths": 0,
+        "fixedExpensePct": 0
+      },
+      "baselineSources": {
+        "baselineRevenue": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-lithium-product-baselineRevenue"
+        },
+        "baselineGrossMarginPct": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-lithium-product-baselineGrossMarginPct"
+        },
+        "variableCostSharePct": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-lithium-product-variableCostSharePct"
+        },
+        "rawMaterialCostSharePct": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-lithium-product-rawMaterialCostSharePct"
+        },
+        "fixedOperatingCost": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-lithium-product-fixedOperatingCost"
+        }
+      },
+      "evidenceIds": [
+        "baseline-event-lithium-product-baselineRevenue",
+        "baseline-event-lithium-product-baselineGrossMarginPct",
+        "baseline-event-lithium-product-variableCostSharePct",
+        "baseline-event-lithium-product-rawMaterialCostSharePct",
+        "baseline-event-lithium-product-fixedOperatingCost"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "baseline-event-lithium-product-baselineRevenue",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "电芯产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    },
+    {
+      "id": "baseline-event-lithium-product-baselineGrossMarginPct",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "电芯产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    },
+    {
+      "id": "baseline-event-lithium-product-variableCostSharePct",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "电芯产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    },
+    {
+      "id": "baseline-event-lithium-product-rawMaterialCostSharePct",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "电芯产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    },
+    {
+      "id": "baseline-event-lithium-product-fixedOperatingCost",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "电芯产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    }
+  ]
+}

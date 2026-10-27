@@ -1,0 +1,64 @@
+{
+  "version": "1.4.0",
+  "assets": [
+    {
+      "id": "noto-sans-sc",
+      "path": "/fonts/noto-sans-sc-v14.woff2",
+      "bytes": 361732,
+      "sha256": "ebab82e134c43fde747f15d40cb89c74a11e6670c2b33176a482be6e7a0fd14a",
+      "license": "/fonts/noto-OFL.txt",
+      "role": "UI",
+      "coverageRevision": "1.7.1"
+    },
+    {
+      "id": "ibm-plex-sans",
+      "path": "/fonts/ibm-plex-sans-v14.woff2",
+      "bytes": 84128,
+      "sha256": "b041353e6134a51e1882bc815b3c4858c194f835e7cb4d2a430f51db9f8a5715",
+      "license": "/fonts/plex-OFL.txt",
+      "role": "data"
+    },
+    {
+      "id": "compute-art",
+      "path": "/art/v14/compute-art.webp",
+      "bytes": 89096,
+      "sha256": "71e7c3661dd777a3985818d8a01dffd1f2a7d4a2e23fac635802d94f6ad741fc",
+      "original": "docs\\evidence\\v14\\r1\\concept-weave-b.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "role": "decorative industry artwork; not research evidence",
+      "generator": "built-in image_gen",
+      "promptVersion": "v14-image-prompts.json#weave-b"
+    },
+    {
+      "id": "lithium-art",
+      "path": "/art/v14/lithium-art.webp",
+      "bytes": 82014,
+      "sha256": "5288718b3fbaf22033df23b1d46bce0757c49ed6e4d6fa7a51a2db561cd8d116",
+      "original": "docs\\evidence\\v14\\r1\\concept-mineral-b.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "role": "decorative industry artwork; not research evidence",
+      "generator": "built-in image_gen",
+      "promptVersion": "v14-image-prompts.json#mineral-b"
+    },
+    {
+      "id": "industry-home-art",
+      "path": "/art/v14/industry-home.webp",
+      "bytes": 224506,
+      "sha256": "8de2bf948005a07bbe22b729a7051551b5050b33c0336d7719b1bc843044870b",
+      "original": "docs\\evidence\\v14\\r2\\industry-home-a.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "role": "decorative industry artwork; not research evidence",
+      "generator": "built-in image_gen",
+      "promptVersion": "v14-image-prompts.json#industry-home-a"
+    }
+  ]
+}

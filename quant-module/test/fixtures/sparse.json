@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "context": {
+    "industry": "量化验收样本",
+    "eventDescription": "尚未选择企业，验证空态引导",
+    "eventDate": "2026-09-01",
+    "asOf": "2026-10-02",
+    "periodLabel": "年度基线（万元）"
+  },
+  "parameters": {
+    "shockPct": 10,
+    "volumePct": 0,
+    "passThroughPct": 40,
+    "exposurePct": 100,
+    "lagMonths": 1,
+    "horizonMonths": 12
+  },
+  "companies": [],
+  "evidence": []
+}

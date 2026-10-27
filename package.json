@@ -1,0 +1,12 @@
+{
+  "name": "chainpion-industry-chain-analysis-tool",
+  "version": "1.7.3",
+  "private": true,
+  "type": "module",
+  "description": "链英 Chainpion：产业链影响分析、交互式量化测算与研究依据交付",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node quant-module/server.mjs",
+    "test": "node --test"
+  }
+}

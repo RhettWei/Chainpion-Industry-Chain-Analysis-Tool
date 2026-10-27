@@ -1,0 +1,38 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.token
+*.pem
+*.key
+
+# Dependencies and runtime output
+node_modules/
+.pnpm-store/
+.vite/
+.cache/
+coverage/
+output/
+artifacts/
+uploads/
+downloads/
+*.log
+*.tmp
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# Media production and machine-local tools
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.exe
+*.dll
+*.zip
+*.tar.gz
+
+# Original one-off staging manifest; release-manifest.json is authoritative
+文件清单与校验.json

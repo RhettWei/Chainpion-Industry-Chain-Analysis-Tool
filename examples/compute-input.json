@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "1.0",
+  "analysis": {
+    "model": "volume_price",
+    "scenarioMode": "entity",
+    "inputPolicy": "direct-entry-v2",
+    "fieldProvenance": [
+      {
+        "companyId": "event-compute-product",
+        "field": "baselineRevenue",
+        "value": 0.01,
+        "route": "assumption",
+        "sourceId": "event-compute-assumptions",
+        "evidenceId": "baseline-event-compute-product-baselineRevenue",
+        "verification": "not_independently_verified"
+      },
+      {
+        "companyId": "event-compute-product",
+        "field": "baselineGrossMarginPct",
+        "value": 30,
+        "route": "assumption",
+        "sourceId": "event-compute-assumptions",
+        "evidenceId": "baseline-event-compute-product-baselineGrossMarginPct",
+        "verification": "not_independently_verified"
+      },
+      {
+        "companyId": "event-compute-product",
+        "field": "variableCostSharePct",
+        "value": 80,
+        "route": "assumption",
+        "sourceId": "event-compute-assumptions",
+        "evidenceId": "baseline-event-compute-product-variableCostSharePct",
+        "verification": "not_independently_verified"
+      },
+      {
+        "companyId": "event-compute-product",
+        "field": "fixedOperatingCost",
+        "value": 0,
+        "route": "assumption",
+        "sourceId": "event-compute-assumptions",
+        "evidenceId": "baseline-event-compute-product-fixedOperatingCost",
+        "verification": "not_independently_verified"
+      }
+    ]
+  },
+  "context": {
+    "industry": "AI 算力基础设施",
+    "eventDescription": "AI 算力设备需求增加 10%",
+    "eventDate": "2026-10-12",
+    "asOf": "2026-10-12",
+    "periodLabel": "规范化产品业务基线；90 天观察窗口；未按时间缩放金额"
+  },
+  "parameters": {
+    "shockPct": 0,
+    "volumePct": 0,
+    "passThroughPct": 0,
+    "exposurePct": 100,
+    "lagMonths": 0,
+    "horizonMonths": 3
+  },
+  "companies": [
+    {
+      "id": "event-compute-product",
+      "name": "算力设备产品",
+      "role": "midstream",
+      "shockChannel": "selling_price",
+      "baselineRevenue": 0.01,
+      "baselineGrossMarginPct": 30,
+      "variableCostSharePct": 80,
+      "fixedOperatingCost": 0,
+      "rawMaterialCostSharePct": 0,
+      "scope": {
+        "level": "product",
+        "product": "算力设备产品业务",
+        "costItem": "同范围单位变动成本",
+        "unit": "综合均价指数"
+      },
+      "scenario": {
+        "affected": true,
+        "costPct": 0,
+        "pricePct": 0,
+        "volumePct": 10,
+        "passThroughPct": 0,
+        "lagMonths": 0,
+        "fixedExpensePct": 0
+      },
+      "baselineSources": {
+        "baselineRevenue": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-compute-product-baselineRevenue"
+        },
+        "baselineGrossMarginPct": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-compute-product-baselineGrossMarginPct"
+        },
+        "variableCostSharePct": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-compute-product-variableCostSharePct"
+        },
+        "fixedOperatingCost": {
+          "kind": "assumption",
+          "evidenceId": "baseline-event-compute-product-fixedOperatingCost"
+        }
+      },
+      "evidenceIds": [
+        "baseline-event-compute-product-baselineRevenue",
+        "baseline-event-compute-product-baselineGrossMarginPct",
+        "baseline-event-compute-product-variableCostSharePct",
+        "baseline-event-compute-product-fixedOperatingCost"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "baseline-event-compute-product-baselineRevenue",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "算力设备产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    },
+    {
+      "id": "baseline-event-compute-product-baselineGrossMarginPct",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "算力设备产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    },
+    {
+      "id": "baseline-event-compute-product-variableCostSharePct",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "算力设备产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    },
+    {
+      "id": "baseline-event-compute-product-fixedOperatingCost",
+      "kind": "assumption",
+      "title": "人工模拟产品基线",
+      "source": "人工模拟产品基线",
+      "description": "所有经营基线、冲击幅度与计算结果均为模拟情景，不代表真实企业财务或已发生的市场变化。",
+      "locator": "算力设备产品业务 · 独立产品基线 · 截至 2026-10-12 · 未按时间缩放金额 · 人民币万元（引擎口径）"
+    }
+  ]
+}

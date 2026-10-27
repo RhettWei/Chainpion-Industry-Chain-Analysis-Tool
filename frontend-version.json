@@ -1,0 +1,10 @@
+{
+  "product": "Chainpion",
+  "frontendVersion": "1.7.3",
+  "contentPresentationVersion": "1.7.2",
+  "quantModuleVersion": "0.4.2",
+  "quantMethodVersion": "1.2.0",
+  "providersConnected": false,
+  "upstreamDelivery": "2026-10-17-desktop-v1.7.3",
+  "distribution": "prebuilt frontend plus standalone quant source"
+}
